@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Travel;
-use App\Http\Requests\StoreTravelRequest;
-use App\Http\Requests\UpdateTravelRequest;
+use Illuminate\Http\Request;
 
 class TravelController extends Controller
 {
@@ -27,7 +26,7 @@ class TravelController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTravelRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -51,7 +50,7 @@ class TravelController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTravelRequest $request, Travel $travel)
+    public function update(Request $request, Travel $travel)
     {
         //
     }

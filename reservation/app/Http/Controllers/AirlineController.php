@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Airline;
-use App\Http\Requests\StoreAirlineRequest;
-use App\Http\Requests\UpdateAirlineRequest;
+use Illuminate\Http\Request;
 
 class AirlineController extends Controller
 {
@@ -13,7 +12,7 @@ class AirlineController extends Controller
      */
     public function index()
     {
-        //
+        return Airline::all();
     }
 
     /**
@@ -21,15 +20,17 @@ class AirlineController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAirlineRequest $request)
+    public function store(Request $request)
     {
-        //
+        $record = new Airline();
+        $record->create($request->all());
+        return $record;
     }
 
     /**
@@ -37,7 +38,8 @@ class AirlineController extends Controller
      */
     public function show(Airline $airline)
     {
-        //
+        return Airline::find($airline);
+        //return $airline;
     }
 
     /**
@@ -51,9 +53,11 @@ class AirlineController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAirlineRequest $request, Airline $airline)
+    public function update(Request $request, Airline $airline)
     {
-        //
+        $record = Airline::findorFail($airline->id);
+        $record->update($request->all());
+        return $record;
     }
 
     /**
@@ -61,6 +65,7 @@ class AirlineController extends Controller
      */
     public function destroy(Airline $airline)
     {
-        //
+        $record = Airline::destroy($airline->id);
+        return $record;
     }
 }
