@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('travel', function (Blueprint $table) {
-            $table->id();
             $table->enum('evaluation', ["foglalva", "törölve", "fizetve", "lemondva"]);
             $table->foreignId('flight_id')->constrained('flights');
             $table->foreignId('user_id')->constrained('users');
