@@ -16,6 +16,7 @@ return new class extends Migration
             $table->enum('evaluation', ["foglalva", "törölve", "fizetve", "lemondva"]);
             $table->foreignId('flight_id')->constrained('flights');
             $table->foreignId('user_id')->constrained('users');
+            $table->primary(['user_id', 'flight_id']);
             $table->timestamps();
         });
     }

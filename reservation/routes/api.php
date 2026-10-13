@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AirlineController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\TravelController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ Route::get('/airlines', [AirlineController::class, 'index']);
 Route::get('/users/{user}', [UserController::class, 'show']);
 Route::get('/flights/{flight}', [FlightController::class, 'show']);
 Route::get('/airlines/{airline}', [AirlineController::class, 'show']);
+Route::get('/travel/{user_id}/{flight_id}', [TravelController::class, 'show']);
 
 Route::put('/users/{user}', [UserController::class, 'update']);
 Route::put('/flights/{flight}', [FlightController::class, 'update']);
@@ -29,3 +31,4 @@ Route::post('/airlines', [AirlineController::class, 'store']);
 Route::delete('/users/{user}', [UserController::class, 'destroy']);
 Route::delete('/flights/{flight}', [FlightController::class, 'destroy']);
 Route::delete('/airlines/{airline}', [AirlineController::class, 'destroy']);
+Route::delete('/travel/{user_id}/{flight_id}', [TravelController::class, 'destroy']);
